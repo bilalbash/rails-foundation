@@ -1,0 +1,39 @@
+doctype html
+html lang='en'
+  head
+    meta charset='utf-8'
+    meta name='viewport' content='width=device-width, initial-scale=1.0'
+
+    title == content_for?(:title) ? yield(:title) : 'Rails Foundation'
+
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'vendor/modernizr'
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tag
+
+  body
+    .off-canvas-wrap[data-offcanvas]
+      .inner-wrap
+
+        nav class="tab-bar"
+          section class="left-small"
+            a class="left-off-canvas-toggle menu-icon" href="#"
+              span
+
+          section class="middle tab-bar-section"
+            h1 class="title" Rails Foundation
+
+        <!-- Off Canvas Menu -->
+        aside.left-off-canvas-menu
+          <!-- whatever you want goes here -->
+          = render 'layouts/left_nav_links'
+
+        <!-- main content goes here -->
+
+        == yield
+
+        <!-- close the off-canvas menu -->
+        a.exit-off-canvas
+
+
+
